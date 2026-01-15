@@ -13,6 +13,14 @@ class PushNotificationsService {
     log(token ?? "null");
     FirebaseMessaging.onBackgroundMessage(handelBackgroundMessage);
     handelForegroundMessage();
+    messaging.subscribeToTopic('all').then((val) {
+      log('Subscribed to topic all');
+    });
+
+    //unsubscribe from topic
+    // messaging.unsubscribeFromTopic('all').then((val) {
+    //   log('Unsubscribed from topic all');
+    // });
   }
 
   static Future<void> handelBackgroundMessage(RemoteMessage message) async {
