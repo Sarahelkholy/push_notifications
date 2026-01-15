@@ -45,11 +45,13 @@ class LocalNotificationsService {
 
     NotificationDetails details = NotificationDetails(
       android: AndroidNotificationDetails(
-        'id1',
-        'Basic Notifications',
+        'channel_id',
+        'channel_name',
         importance: Importance.max,
         priority: Priority.high,
         styleInformation: bigPictureStyleInformation,
+        playSound: true,
+        sound: RawResourceAndroidNotificationSound('sound'.split('.').first),
       ),
       iOS: DarwinNotificationDetails(),
     );
